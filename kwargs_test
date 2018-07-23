@@ -1,0 +1,32 @@
+>>> def f(a):
+...   print(a)
+...   print(type(a))
+...
+>>> def g(**a):
+...   print(a)
+...   print(type(a))
+...
+>>>
+>>> dict = {'A': 123, 'B': 456}
+>>> f(dict)
+{'A': 123, 'B': 456}
+<class 'dict'>
+>>> g(dict)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: g() takes 0 positional arguments but 1 was given
+>>> f(a= dict)
+{'A': 123, 'B': 456}
+<class 'dict'>
+>>> g(a=dict)
+{'a': {'A': 123, 'B': 456}}
+<class 'dict'>
+>>> f(a="abc")
+abc
+<class 'str'>
+>>> g(a="abc")
+{'a': 'abc'}
+<class 'dict'>
+>>> g(**dict)
+{'A': 123, 'B': 456}
+<class 'dict'>
